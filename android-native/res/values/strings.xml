@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Dr. Logo</string>
+    <string name="project_server_url">https://shadow-reoccur-client.ngrok-free.dev</string>
+</resources>

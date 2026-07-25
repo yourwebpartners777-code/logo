@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Logo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            margin: 0;
+        }
+        
+        @keyframes floatPanda {
+            0% {
+                transform: translate3d(0, 112vh, 0) rotate(calc(var(--float-tilt, 8deg) * -1)) scale(var(--float-scale, 1));
+                opacity: 0;
+            }
+            8% { opacity: 1; }
+            24% {
+                transform: translate3d(calc(var(--float-sway, 18px) * -1), 78vh, 0) rotate(var(--float-tilt, 8deg)) scale(var(--float-scale, 1));
+                opacity: 1;
+            }
+            48% {
+                transform: translate3d(var(--float-sway, 18px), 38vh, 0) rotate(calc(var(--float-tilt, 8deg) * -0.7)) scale(var(--float-scale, 1));
+                opacity: 1;
+            }
+            72% {
+                transform: translate3d(calc(var(--float-drift, 44px) - var(--float-sway, 18px)), 4vh, 0) rotate(calc(var(--float-tilt, 8deg) * 0.75)) scale(var(--float-scale, 1));
+                opacity: 1;
+            }
+            92% { opacity: 1; }
+            100% {
+                transform: translate3d(var(--float-drift, 44px), -24vh, 0) rotate(calc(var(--float-tilt, 8deg) * -1)) scale(var(--float-scale, 1));
+                opacity: 0;
+            }
+        }
+
+        .panda-balloon {
+            position: fixed;
+            top: 0;
+            pointer-events: none;
+            z-index: 0;
+            font-size: 2.5rem;
+            animation: floatPanda linear infinite;
+            animation-fill-mode: both;
+            opacity: 0;
+            contain: layout style;
+            transform: translate3d(0, 112vh, 0);
+            will-change: transform, opacity;
+        }
+
+        .letter-balloon {
+            width: 3.1rem;
+            height: 3.6rem;
+            position: relative;
+            border-radius: 52% 52% 48% 48%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.55rem;
+            line-height: 1;
+            text-shadow: 0 2px 0 rgba(0,0,0,0.14);
+            box-shadow:
+                inset -8px -10px 0 rgba(0,0,0,0.12),
+                inset 8px 9px 0 rgba(255,255,255,0.34),
+                0 10px 16px rgba(15,23,42,0.14);
+        }
+
+        .letter-balloon::before {
+            content: "";
+            position: absolute;
+            top: 0.46rem;
+            left: 0.72rem;
+            width: 0.72rem;
+            height: 0.95rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.58);
+            transform: rotate(28deg);
+        }
+
+        .letter-balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -0.34rem;
+            left: 50%;
+            width: 0.72rem;
+            height: 0.52rem;
+            border-radius: 0 0 50% 50%;
+            background: inherit;
+            transform: translateX(-50%);
+        }
+
+        .letter-balloon__glyph {
+            position: relative;
+            z-index: 2;
+        }
+
+        .letter-balloon__string {
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 0.05rem);
+            width: 0.08rem;
+            height: 2.65rem;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(71,85,105,0.72), rgba(71,85,105,0.18));
+            transform: translateX(-50%) rotate(var(--string-tilt, -4deg));
+            transform-origin: 50% 0;
+        }
+
+        .letter-balloon__string::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -0.35rem;
+            width: 0.42rem;
+            height: 0.42rem;
+            border-left: 0.08rem solid rgba(71,85,105,0.42);
+            border-bottom: 0.08rem solid rgba(71,85,105,0.42);
+            border-radius: 0 0 0 0.35rem;
+            transform: translateX(-50%) rotate(-18deg);
+        }
+
+        .theme-male {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+        .theme-female {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+        }
+        .theme-default {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="/assets/index-QzBFnzrO.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-bNFROHkm.css">
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
